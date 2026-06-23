@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>闪电充电 - 新能源充电服务</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- ===== 启动页 ===== -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="36" fill="none" stroke="rgba(0,212,106,0.3)" stroke-width="4"/>
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#00d46a" stroke-width="4"
+            stroke-dasharray="226" stroke-dashoffset="226" class="splash-circle"/>
+        </svg>
+        <i class="fas fa-bolt" style="position:absolute;font-size:32px;color:#00d46a;top:50%;left:50%;transform:translate(-50%,-50%);"></i>
+      </div>
+      <div class="splash-title">闪电充电</div>
+      <div class="splash-subtitle">让每次出行都充满能量</div>
+    </div>
+  </div>
+
+  <!-- ===== 权限授权弹窗 ===== -->
+  <div id="permission-modal" class="permission-overlay" style="display:none;">
+    <div class="permission-sheet">
+      <div class="permission-icon">📍</div>
+      <h3>需要获取你的位置</h3>
+      <p>获取附近充电站信息，为你推荐最优充电方案</p>
+      <div class="permission-buttons">
+        <button class="btn btn-outline btn-lg" onclick="handlePermission(false)">暂不授权</button>
+        <button class="btn btn-primary btn-lg" onclick="handlePermission(true)">允许授权</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 消息推送弹窗 ===== -->
+  <div id="push-modal" class="permission-overlay" style="display:none;">
+    <div class="permission-sheet">
+      <div class="permission-icon">🔔</div>
+      <h3>开启充电提醒</h3>
+      <p>充电完成、优惠活动第一时间通知你</p>
+      <div class="permission-buttons">
+        <button class="btn btn-outline btn-lg" onclick="handlePushPermission(false)">暂不开启</button>
+        <button class="btn btn-primary btn-lg" onclick="handlePushPermission(true)">允许通知</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主应用容器 -->
+  <div id="app">
+    <div id="page-home" class="page active"></div>
+    <div id="page-station" class="page"></div>
+    <div id="page-charging" class="page"></div>
+    <div id="page-scan" class="page"></div>
+    <div id="page-orders" class="page"></div>
+    <div id="page-profile" class="page"></div>
+    <div id="page-map" class="page"></div>
+    <div id="page-recharge" class="page"></div>
+    <div id="page-coupon" class="page"></div>
+    <div id="page-invoice" class="page"></div>
+    <div id="page-vehicle" class="page"></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Loading -->
+  <div id="loading" class="loading-overlay" style="display:none;">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">加载中...</div>
+  </div>
+
+  <!-- 底部导航 -->
+  <nav class="bottom-nav">
+    <div class="nav-item active" data-page="home">
+      <i class="fas fa-home"></i>
+      <span>首页</span>
+    </div>
+    <div class="nav-item" data-page="map">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>地图</span>
+    </div>
+    <div class="nav-item" data-page="scan">
+      <div class="nav-scan-btn">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <span>扫码</span>
+    </div>
+    <div class="nav-item" data-page="orders">
+      <i class="fas fa-receipt"></i>
+      <span>订单</span>
+    </div>
+    <div class="nav-item" data-page="profile">
+      <i class="fas fa-user"></i>
+      <span>我的</span>
+    </div>
+  </nav>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
